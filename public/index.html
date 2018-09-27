@@ -19,26 +19,33 @@
   <script type="text/javascript">
       $(document).ready(function(){
           var box = null;
-          <!-- $("input[type='button']").click(function(event, ui) { -->
-             <!--  if(box) { -->
-                  <!-- box.chatbox("option", "boxManager").toggleBox(); -->
-              <!-- } -->
-             <!--  else { -->
-                  box = $("#chat_div").chatbox({id:"chat_div", 
-                                                user:{key : "value"},
-                                                title : "test chat",
-                                                messageSent : function(id, user, msg) {
+		  var x = document.getElementById("myDIV");
+		  x.style.display = "none";
+		  
+          $("input[type='button']").click(function(event, ui) {
+              if(box) {
+			      
+                  box.chatbox("option","boxManager").toggleBox();
+				<!--   x.style.display = "block"; -->
+              }
+              else {
+                  <!-- box = $("#chat_div").chatbox({id:"chat_div",  -->
+                                                <!-- user:{key : "value"}, -->
+                                                <!-- title : "test chat", -->
+                                                <!-- messageSent : function(id, user, msg) { -->
                                                     <!-- $("#log").append(id + " said: " + msg + "<br/>"); -->
                                                     <!-- $("#chat_div").chatbox("option", "boxManager").addMsg(id, msg); -->
-													$("#chat_div").chatbox("option", "boxManager");
+													<!-- $("#chat_div").chatbox("option", "boxManager"); -->
 													
-                                                }
+                                                <!-- } -->
 												
-												});
-				  box = $("#myDIV").chatbox({title : "Lets Talk",});								
+												<!-- }); -->
+				  box = $("#myDIV").chatbox({title : "PC Support Chat",});	
+				  x.style.display = "block";
+				  				  
 												
-             <!--  } -->
-          <!-- }); -->
+              }
+          });
       });
     </script>
 </head>
@@ -48,21 +55,25 @@
     <img class="option full" src="../img/Chat Button.png">
     <img class="option not-full" src="../img/Code Button.png">
   </div> -->
-  <!--  <input type="button" name="toggle" value="toggle" />
-    <div id="chat_div">
-    </div>
-    <hr /> -->
+   
+    <!-- <div id= "chat_div"> -->
+    <!-- </div> -->
+    <!-- <hr /> -->
     <!-- <div id="log">
     </div> -->
   <div id="contentParent" class="responsive-columns-wrapper">
 
-    <div id="chat-column-holder" class="responsive-column content-column" style="background: url(../img/Background.jpeg) center no-repeat;" >
-	  <H1 style="color:#ced1d6">Welcome to IT Support Chatbot<H1>
+    <div id="chat-column-holder" class="responsive-column content-column" style="background: url(../img/Background.jpeg) center no-repeat;background-size: cover;
+    background-position: inherit;" >
+	<input type="button" name="toggle" value="Lets Talk" style = "margin-left: 1006px;margin-top: 510px;width: 154px;height: 30px;background-color: yellow;border: greenyellow;font-size: larger;
+    font-family: sans-serif;border-radius: 10px;" />
 	  <!-- <div id="view-change-button" class="button" onclick="hideShow()" style="margin-right: 26%;margin-top: 38%;">
            <img class="option full" src="../img/Chat Button.png"><div id="chatId" style="margin-top: 15px;color: white;font-size: medium;">Chat</div></img>
       </div> -->
+	  
 	  <!-- <div id="myDIV"> -->
       <div class="chat-column" style="height:auto"    >
+	  
 	   <div id="myDIV" style ="width: 300px;height: 338px;">
 	    <div id="scrollingChat"></div>
         <label for="textInput" class="inputOutline">
@@ -77,6 +88,7 @@
         </div> -->
       </div>
 	 <!--  </div> -->
+	 
     </div>
     <div id="payload-column" class="fixed-column content-column" style="display:none" >
       <div id="payload-initial-message">
@@ -94,7 +106,7 @@
   <script src="js/payload.js"></script>
   <script src="js/global.js"></script>
   <script type="text/javascript" src="https://cdn.rawgit.com/watson-developer-cloud/watson-developer-cloud.github.io/master/analytics.js"></script>
-<!--   <script>
+ <!--  <script>
   function hideShow() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
